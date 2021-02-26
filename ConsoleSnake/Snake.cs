@@ -34,10 +34,10 @@ namespace ConsoleSnake
             points.Add(head);
 
             tail.Clear();
-            head.Drow();
+            head.Draw();
         }
 
-        public Point GetNextPoint()
+        public Point GetNextPoint() //Создаю новую точку
         {
             Point head = points.Last();
             Point nextPoint = new Point(head);
@@ -45,13 +45,13 @@ namespace ConsoleSnake
             return nextPoint;
         }
 
-        internal bool Eat(Point food)
+        internal bool Eat(Point _food)
         {
             Point head = GetNextPoint();
-            if (head.IsHit(food))
+            if (head.IsHit(_food)) //Проверяю на касание по кординатам || если кордината head стала равной кординате food
             {
-                food.sym = head.sym;
-                points.Add(food);
+                _food.sym = head.sym;
+                points.Add(_food);
                 return true;
             }
             else

@@ -19,7 +19,7 @@ namespace ConsoleSnake
             sym = _sym;
         }
 
-        public void Drow() //Прорисовка
+        public void Draw() //Прорисовка
         {
             Console.SetCursorPosition(x, y);
             Console.Write(sym);
@@ -60,7 +60,7 @@ namespace ConsoleSnake
         internal void Clear()
         {
             sym = ' ';
-            Drow();
+            Draw();
         }
 
         public bool IsHit(Point p)

@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleSnake
 {
-    //Developer:|☶☴☰☵☳☴
-    //Горизонтальная стена наследуемая от "Фигура-Линия".
+    //Горизонтальная стена наследуемая от Figura
     class HorizLine : Figura
     {
         public HorizLine(int xLeft, int xRight, int y, char sym) //начало - конец - высота - материал: линии 

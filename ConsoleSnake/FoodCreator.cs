@@ -12,7 +12,7 @@ namespace ConsoleSnake
         public int mapHeight;
         public char sym;
 
-        Random random = new Random();
+        Random randValue = new Random();
 
         public FoodCreator(int mapWidth, int mapHeight, char sym)
         { 
@@ -21,10 +21,10 @@ namespace ConsoleSnake
             this.sym = sym;
         }
 
-        public Point CreateFood()
+        public Point CreateFood() 
         {
-            int x = random.Next(2, mapWidth - 2);
-            int y = random.Next(2, mapHeight - 2);
+            int x = randValue.Next(2, mapWidth - 2);
+            int y = randValue.Next(2, mapHeight - 2);
             return new Point(x, y, sym);
         }
     }
