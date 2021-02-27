@@ -8,9 +8,9 @@ namespace ConsoleSnake
 {
     class FoodCreator
     {
-        public int mapWidth;
-        public int mapHeight;
-        public char sym;
+        private int mapWidth;
+        private int mapHeight;
+        private char sym;
 
         Random randValue = new Random();
 

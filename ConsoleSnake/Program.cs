@@ -11,14 +11,8 @@ namespace ConsoleSnake
     {
         static void Main(string[] args)
         {
-            HorizLine topHorizLine = new HorizLine(1, 115, 0, '.');     //
-            topHorizLine.DrawLine();                                    //
-            HorizLine bottomHorizLine = new HorizLine(1, 115, 28, '.'); //
-            bottomHorizLine.DrawLine();                                 //      кординыты
-            VertiLine leftVertiLine = new VertiLine(1, 28, 1, '.');     //      и прорисовка
-            leftVertiLine.DrawLine();                                   //      игрового поля!
-            VertiLine rightVertiLine = new VertiLine(1, 28, 115, '.');  //
-            rightVertiLine.DrawLine();                                  //
+            Walls walls = new Walls(115, 28);
+            walls.Draw();
 
             Point point = new Point(3, 5, '*'); //кординаты и материал - создание самого же себя - конструктор
             Snake snake = new Snake(point, 4, Direction.RIGHT); /* - кординаты и материал 
@@ -30,17 +24,13 @@ namespace ConsoleSnake
             FoodCreator foodCreator = new FoodCreator(115, 28, '$');
             Point food = foodCreator.CreateFood();
             food.Draw();
-            //---------------------------------------------------------------------------------------------------Test╖
-            HorizLine h1 = new HorizLine(7, 15, 9,'0');
-            Draaaw(h1);
-
-            Point p1 = new Point(20, 20, '+');
-            Figura f_Snake = new Snake(p1, 30, Direction.DOWN);
-            Draaaw(f_Snake);
-
-            //---------------------------------------------------------------------------------------------------Test╜
+            
             while (true)
             {
+                if (walls.IsHit(snake) || snake.IsHitBody())
+                {
+                    break;
+                }
                 if (snake.Eat(food))
                 {
                     food = foodCreator.CreateFood();
@@ -60,12 +50,5 @@ namespace ConsoleSnake
                 }
             }
         }
-
-        //---------------------------------------------------------------------------------------------------Test
-        static void Draaaw(Figura figura)
-        {
-            figura.DrawLine();
-        }
-
     }
 }

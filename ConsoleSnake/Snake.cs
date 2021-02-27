@@ -60,6 +60,19 @@ namespace ConsoleSnake
             }
         }
 
+        internal bool IsHitBody()
+        {
+            var head = points.Last();
+            for (int i = 0; i < points.Count - 2; i++)
+            {
+                if (head.IsHit(points[i]))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public void HandelKey(ConsoleKey key)
         {
             if (key == ConsoleKey.LeftArrow)

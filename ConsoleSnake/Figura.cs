@@ -19,5 +19,30 @@ namespace ConsoleSnake
                 p.Draw(); // ...у неё cвойство рисоваться в консоль
             }
         }
+
+        internal bool IsHit(Figura figura)
+        {
+            foreach (var p in points)
+            {
+                if (figura.IsHit(p))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool IsHit(Point point)
+        {
+            foreach (var p in points)
+            {
+                if (p.IsHit(point))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }
