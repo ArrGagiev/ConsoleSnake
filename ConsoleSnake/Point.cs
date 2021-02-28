@@ -52,18 +52,21 @@ namespace ConsoleSnake
             }
         }
 
-        public override string ToString()
+        //Метод позволяет отследить в режиме отладки с каким конкретным элементом мы имеем дело
+        public override string ToString() 
         {
             return $"{x}, {y}, {sym}";
         }
 
+        //Ставим символ пробела в том месте, где больше не должно быть элемента тела змейки
         internal void Clear()
         {
             sym = ' ';
             Draw();
         }
 
-        public bool IsHit(Point p)
+        //Возвращает булевое значение пересечения кординат true/false
+        public bool Intersection(Point p)
         {
             return p.x == this.x && p.y == this.y;
         }

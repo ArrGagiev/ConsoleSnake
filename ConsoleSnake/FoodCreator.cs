@@ -14,6 +14,7 @@ namespace ConsoleSnake
 
         Random randValue = new Random();
 
+        //В это методе указываем габариты экрана и тот символ который выступит в качестве еды
         public FoodCreator(int mapWidth, int mapHeight, char sym)
         { 
             this.mapWidth = mapWidth;
@@ -21,6 +22,7 @@ namespace ConsoleSnake
             this.sym = sym;
         }
 
+        //Создаем ту саму еду в рандомном месте нашего экрана
         public Point CreateFood() 
         {
             int x = randValue.Next(2, mapWidth - 2);

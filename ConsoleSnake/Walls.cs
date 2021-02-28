@@ -10,7 +10,9 @@ namespace ConsoleSnake
     {
         List<Figura> wallList;
 
-        public Walls(int _mapWidth, int _mapHeight)
+        //Тут конструктор принимает габарыты карты и создает и кладёт линии в список типа Figura
+        //Благодаря полиморфизму мы можем класть в него объекты класса наследников
+        public Walls(int _mapWidth, int _mapHeight) 
         {
             wallList = new List<Figura>();
 
@@ -25,7 +27,7 @@ namespace ConsoleSnake
             wallList.Add(rightVertiLine);
         }
 
-        internal bool IsHit(Figura figura)
+        internal bool HittingTheWall(Figura figura) //Локально, проверка удара змейки о стену (тут figura и есть змейка)
         {
             foreach(var wall in wallList)
             {

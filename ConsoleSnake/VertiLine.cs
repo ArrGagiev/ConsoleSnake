@@ -8,16 +8,14 @@ namespace ConsoleSnake
 {
     class VertiLine : Figura
     {
-        public VertiLine(int yTop, int yBottom, int x, char sym) //начало - конец - высота - материал: линии 
+        public VertiLine(int yTop, int yBottom, int x, char sym)
         {
-            points = new List<Point>(); /* - Создаю массив элементов линии 
-                                         * - Единично... точка 
-                                         * - Создание объекта для Mассива points, класса Figura */
+            points = new List<Point>(); 
 
-            for (int y = yTop; y <= yBottom; y++) //Сам процесс создания
+            for (int y = yTop; y <= yBottom; y++)
             {
                 Point p = new Point(x, y, sym);
-                points.Add(p); //ДОБАВЛЕНИЕ точки и её перенос В МАССИВ класса Figura
+                points.Add(p);
             }
         }
     }

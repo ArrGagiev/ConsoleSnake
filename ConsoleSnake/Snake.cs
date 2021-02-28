@@ -37,7 +37,7 @@ namespace ConsoleSnake
             head.Draw();
         }
 
-        public Point GetNextPoint() //Создаю новую точку
+        public Point GetNextPoint() //Создаю новую точку (новый элемент тела змейки)
         {
             Point head = points.Last();
             Point nextPoint = new Point(head);
@@ -48,7 +48,7 @@ namespace ConsoleSnake
         internal bool Eat(Point _food)
         {
             Point head = GetNextPoint();
-            if (head.IsHit(_food)) //Проверяю на касание по кординатам || если кордината head стала равной кординате food
+            if (head.Intersection(_food)) //Проверяю на касание по кординатам || если кордината head стала равной кординате _food
             {
                 _food.sym = head.sym;
                 points.Add(_food);
@@ -60,12 +60,12 @@ namespace ConsoleSnake
             }
         }
 
-        internal bool IsHitBody()
+        internal bool BodyBlow() //Проверка удара об элемент тела змейки
         {
             var head = points.Last();
             for (int i = 0; i < points.Count - 2; i++)
             {
-                if (head.IsHit(points[i]))
+                if (head.Intersection(points[i]))
                 {
                     return true;
                 }
@@ -73,7 +73,7 @@ namespace ConsoleSnake
             return false;
         }
 
-        public void HandelKey(ConsoleKey key)
+        public void HandelKey(ConsoleKey key) //Проверка на ввод клавиш с клавиатуры
         {
             if (key == ConsoleKey.LeftArrow)
             {

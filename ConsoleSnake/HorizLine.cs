@@ -16,7 +16,7 @@ namespace ConsoleSnake
             for (int x = xLeft; x <= xRight; x++)
             {
                 Point p = new Point(x, y, sym);
-                points.Add(p);
+                points.Add(p); //Добавление точки в массив класса Figura
             }
         }
     }
